@@ -1,10 +1,13 @@
 extends CharacterBody2D
 
 
-const SPEED = 130
+var SPEED = 130
 const JUMP_VELOCITY = -300.0
+var Dashcounter = 3
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var Dash_timer: Timer = %"Dash-Recharge-Timer"
+
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -12,6 +15,9 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+
+
+
 
 	# Handle jump.
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
@@ -21,6 +27,7 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("Left", "Right")
 	#gets direction, -1, 0 , 1
+	
 	
 	#flip sprite 
 	if direction > 0:
@@ -42,4 +49,34 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
+#dash setup
+	if Input.is_action_just_pressed("Dash") and Dashcounter > 0:
+		velocity.y += JUMP_VELOCITY
+		velocity.x += direction * (SPEED * 10)
+		Dashcounter -= 1
+		print(Dashcounter)
+		dashcheck()
+
 	move_and_slide()
+
+#dash-----------
+
+func dashcheck():
+	print("checking")
+	if Dashcounter >= 3:
+		print("Too many dashes,skipping")
+	else:
+		print("below max, recharging ")
+		on_recharge_timer_ready()
+
+func on_recharge_timer_ready() -> void:
+	Dash_timer.start()
+	print("timer starting")
+
+
+func on_recharge_timer_timeout() -> void:
+	print("stopped, adding dash")
+	Dashcounter += 1
+	print(Dashcounter)
+	dashcheck()
+#-------------------
