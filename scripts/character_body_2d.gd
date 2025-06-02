@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 var SPEED = 130
 const JUMP_VELOCITY = -300.0
-var Dashcounter = 1
+var Dashcounter = 3
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var Dash_timer: Timer = %"Dash-Recharge-Timer"
@@ -16,12 +16,6 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-#timer
-	Dash_timer.start()
-	print("timer start")
-	func on_recharge_timer_timeout():
-		print("timer end")
-#
 
 
 
@@ -57,26 +51,32 @@ func _physics_process(delta: float) -> void:
 
 #dash setup
 	if Input.is_action_just_pressed("Dash") and Dashcounter > 0:
-		print(Dashcounter)
 		velocity.y += JUMP_VELOCITY
 		velocity.x += direction * (SPEED * 10)
-		Dashcounter = 0
-	
-	#dash recharge timer
-	
-	
-	
-	#-------
-
-
-
+		Dashcounter -= 1
+		print(Dashcounter)
+		dashcheck()
 
 	move_and_slide()
 
+#dash-----------
+
+func dashcheck():
+	print("checking")
+	if Dashcounter >= 3:
+		print("Too many dashes,skipping")
+	else:
+		print("below max, recharging ")
+		on_recharge_timer_ready()
 
 func on_recharge_timer_ready() -> void:
-	pass # Replace with function body.
+	Dash_timer.start()
+	print("timer starting")
 
 
 func on_recharge_timer_timeout() -> void:
-	pass # Replace with function body.
+	print("stopped, adding dash")
+	Dashcounter += 1
+	print(Dashcounter)
+	dashcheck()
+#-------------------
