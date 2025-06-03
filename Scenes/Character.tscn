@@ -103,6 +103,7 @@ shape = SubResource("RectangleShape2D_jo2ib")
 scale = Vector2(1.02619, 0.780904)
 zoom = Vector2(4, 4)
 position_smoothing_enabled = true
+position_smoothing_speed = 10.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 scale = Vector2(0.511627, 0.571226)

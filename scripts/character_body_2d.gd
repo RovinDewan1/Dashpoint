@@ -46,9 +46,9 @@ func _physics_process(delta: float) -> void:
 	
 	if direction:
 		velocity.x = direction * SPEED
-		if SPEED >= 390:
-			if SPEED > 390:
-				SPEED -= 2
+		if SPEED >= 300:
+			if SPEED > 300:
+				SPEED -= 20
 				if is_on_floor():
 					SPEED = SPEED - (SPEED-390)
 				#print(SPEED)
@@ -66,10 +66,16 @@ func _physics_process(delta: float) -> void:
 			SPEED -= 10 #speed decay
 			#print(SPEED)
 #dash setup
+	if Input.is_action_pressed("Jump") and Input.is_action_just_pressed("Dash") and Dashcounter > 0:
+				velocity.y = JUMP_VELOCITY-150
+				Dashcounter -= 1
+				print(Dashcounter)
+				dashcheck()
+
 	if Input.is_action_just_pressed("Dash") and Dashcounter > 0:
 		velocity.y = JUMP_VELOCITY+150
-		for i in range(5):
-			SPEED += 20
+		for i in range(6):
+			SPEED += 50
 		Dashcounter -= 1
 		print(Dashcounter)
 		dashcheck()
