@@ -120,4 +120,10 @@ one_shot = true
 position = Vector2(2, -45)
 texture = ExtResource("18_nxr2n")
 
+[node name="delay" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.2
+one_shot = true
+
 [connection signal="timeout" from="Dash-Recharge-Timer" to="CharacterBody2D" method="on_recharge_timer_timeout"]
+[connection signal="timeout" from="delay" to="CharacterBody2D" method="delay_timeout"]
