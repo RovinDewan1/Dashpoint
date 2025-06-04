@@ -7,6 +7,7 @@ var Dashcounter = 3
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var Dash_timer: Timer = %"Dash-Recharge-Timer"
+@onready var delay: Timer = %delay
 
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -46,19 +47,45 @@ func _physics_process(delta: float) -> void:
 	
 	if direction:
 		velocity.x = direction * SPEED
+		if SPEED >= 300:
+			if SPEED > 300:
+				SPEED -= 20
+				if is_on_floor():
+					SPEED = SPEED - (SPEED-390)
+				#print(SPEED)
+			pass
+		else:
+			SPEED += 1 #speed gain over time
+			#print(SPEED)
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+		if SPEED <= 130:
+			if SPEED < 130:
+				SPEED = 130 # if speed is below 130, set to 130
+			pass
+		else:
+			SPEED -= 10 #speed decay
+			#print(SPEED)
 #dash setup
-	if Input.is_action_just_pressed("Dash") and Dashcounter > 0:
-		velocity.y += JUMP_VELOCITY
-		velocity.x += direction * (SPEED * 10)
-		Dashcounter -= 1
-		print(Dashcounter)
-		dashcheck()
+	if delay.is_stopped() == true:
+		if Input.is_action_pressed("Jump") and Input.is_action_pressed("Dash") and Dashcounter > 0:
+					velocity.y = JUMP_VELOCITY-150
+					Dashcounter -= 1
+					print(Dashcounter)
+					delay.start()
+					dashcheck()
+
+		elif Input.is_action_just_pressed("Dash") and Dashcounter > 0:
+			velocity.y = JUMP_VELOCITY+150
+			for i in range(6):
+				SPEED += 100
+			Dashcounter -= 1
+			print(Dashcounter)
+			delay.start()
+			dashcheck()
 
 	move_and_slide()
-
+	#print(SPEED)
 #dash-----------
 
 func dashcheck():
@@ -80,3 +107,7 @@ func on_recharge_timer_timeout() -> void:
 	print(Dashcounter)
 	dashcheck()
 #-------------------
+
+
+func delay_timeout() -> void:
+	pass # Replace with function body.

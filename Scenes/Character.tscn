@@ -103,6 +103,7 @@ shape = SubResource("RectangleShape2D_jo2ib")
 scale = Vector2(1.02619, 0.780904)
 zoom = Vector2(4, 4)
 position_smoothing_enabled = true
+position_smoothing_speed = 10.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 scale = Vector2(0.511627, 0.571226)
@@ -119,4 +120,10 @@ one_shot = true
 position = Vector2(2, -45)
 texture = ExtResource("18_nxr2n")
 
+[node name="delay" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.2
+one_shot = true
+
 [connection signal="timeout" from="Dash-Recharge-Timer" to="CharacterBody2D" method="on_recharge_timer_timeout"]
+[connection signal="timeout" from="delay" to="CharacterBody2D" method="delay_timeout"]
