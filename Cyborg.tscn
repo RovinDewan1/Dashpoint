@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://bfneg1b6ujd01"]
 
-[ext_resource type="Script" uid="uid://vl7x7va2a07x" path="res://scripts/enemy_ai.gd" id="1_phbn7"]
+[ext_resource type="Script" uid="uid://biswo4hvh2lf" path="res://scripts/cyborg.gd" id="1_yekqb"]
 [ext_resource type="Texture2D" uid="uid://d1cycvcabekgb" path="res://sprites/3 Cyborg/Cyborg_idle.png" id="2_4pp6i"]
 [ext_resource type="PackedScene" uid="uid://c03ujguggmc3l" path="res://Scenes/killzone.tscn" id="3_yekqb"]
 
@@ -44,7 +44,7 @@ animations = [{
 size = Vector2(21, 35)
 
 [node name="Enemy Ai" type="Node2D"]
-script = ExtResource("1_phbn7")
+script = ExtResource("1_yekqb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4etax")
