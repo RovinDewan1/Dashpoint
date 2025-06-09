@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bgrxevv34rfge"]
+[gd_scene load_steps=20 format=3 uid="uid://bgrxevv34rfge"]
 
 [ext_resource type="Script" uid="uid://c2omw2tqckclf" path="res://scripts/character_body_2d.gd" id="1_0y7nr"]
 [ext_resource type="Texture2D" uid="uid://btbg74mdgmtii" path="res://sprites/player/idle/idle-1.png" id="2_kw72g"]
@@ -17,7 +17,6 @@
 [ext_resource type="Texture2D" uid="uid://c8btetsxrok3" path="res://sprites/player/run/run-6.png" id="15_k0a7x"]
 [ext_resource type="Texture2D" uid="uid://dhxsvh07rrlbf" path="res://sprites/player/run/run-7.png" id="16_7hvrm"]
 [ext_resource type="Texture2D" uid="uid://bar6bdt7r0ln6" path="res://sprites/player/run/run-8.png" id="17_omrrf"]
-[ext_resource type="Texture2D" uid="uid://bxcfyfry57lly" path="res://icon.svg" id="18_nxr2n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jo2ib"]
 size = Vector2(22.2761, 20)
@@ -101,7 +100,7 @@ shape = SubResource("RectangleShape2D_jo2ib")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 scale = Vector2(1.02619, 0.780904)
-zoom = Vector2(4, 4)
+zoom = Vector2(3, 3)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
@@ -115,10 +114,6 @@ autoplay = "idle"
 unique_name_in_owner = true
 wait_time = 3.0
 one_shot = true
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(2, -45)
-texture = ExtResource("18_nxr2n")
 
 [node name="delay" type="Timer" parent="."]
 unique_name_in_owner = true
