@@ -1,9 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://bfneg1b6ujd01"]
+[gd_scene load_steps=18 format=3 uid="uid://bfneg1b6ujd01"]
 
 [ext_resource type="Script" uid="uid://biswo4hvh2lf" path="res://scripts/cyborg.gd" id="1_yekqb"]
 [ext_resource type="Texture2D" uid="uid://d1cycvcabekgb" path="res://sprites/3 Cyborg/Cyborg_idle.png" id="2_4pp6i"]
 [ext_resource type="Texture2D" uid="uid://b50cqylprbrqg" path="res://sprites/3 Cyborg/Cyborg_attack3.png" id="2_bydw0"]
-[ext_resource type="PackedScene" uid="uid://c03ujguggmc3l" path="res://Scenes/killzone.tscn" id="3_yekqb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6iel6"]
 atlas = ExtResource("2_bydw0")
@@ -102,8 +101,8 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ipfg1"]
-size = Vector2(21, 35)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bydw0"]
+size = Vector2(295, 122)
 
 [node name="Enemy Ai" type="Node2D"]
 script = ExtResource("1_yekqb")
@@ -115,16 +114,12 @@ autoplay = "default"
 frame = 3
 frame_progress = 0.724429
 
-[node name="killzone" parent="AnimatedSprite2D" instance=ExtResource("3_yekqb")]
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(18, -24)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/killzone"]
-position = Vector2(-11.5, 6.5)
-shape = SubResource("RectangleShape2D_ipfg1")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-27, -13)
+shape = SubResource("RectangleShape2D_bydw0")
 
-[node name="RayCastRight" type="RayCast2D" parent="."]
-position = Vector2(-12, 7)
-target_position = Vector2(14, 0)
-
-[node name="RayCastLeft" type="RayCast2D" parent="."]
-position = Vector2(-12, 7)
-target_position = Vector2(-13, 0)
+[node name="mover" type="Timer" parent="."]
+autostart = true
