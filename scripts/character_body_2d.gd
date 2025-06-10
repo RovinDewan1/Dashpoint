@@ -47,11 +47,11 @@ func _physics_process(delta: float) -> void:
 	
 	if direction:
 		velocity.x = direction * SPEED
-		if SPEED >= 300:
-			if SPEED > 300:
+		if SPEED >= 230:
+			if SPEED > 230:
 				SPEED -= 20
 				if is_on_floor():
-					SPEED = SPEED - (SPEED-390)
+					SPEED = SPEED - (SPEED-230)
 				#print(SPEED)
 			pass
 		else:
