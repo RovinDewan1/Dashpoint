@@ -120,5 +120,13 @@ unique_name_in_owner = true
 wait_time = 0.2
 one_shot = true
 
+[node name="dash counter" type="Label" parent="."]
+offset_left = -113.0
+offset_top = -90.0
+offset_right = -87.0
+offset_bottom = -64.0
+text = "hgt"
+script = ExtResource("1_0y7nr")
+
 [connection signal="timeout" from="Dash-Recharge-Timer" to="CharacterBody2D" method="on_recharge_timer_timeout"]
 [connection signal="timeout" from="delay" to="CharacterBody2D" method="delay_timeout"]

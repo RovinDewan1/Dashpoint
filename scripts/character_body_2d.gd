@@ -1,4 +1,4 @@
-extends CharacterBody2D
+্extends CharacterBody2D
 
 
 var SPEED = 130
@@ -111,3 +111,4 @@ func on_recharge_timer_timeout() -> void:
 
 func delay_timeout() -> void:
 	pass # Replace with function body.
+	
