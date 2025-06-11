@@ -110,6 +110,8 @@ sprite_frames = SubResource("SpriteFrames_kw72g")
 animation = &"walk"
 autoplay = "idle"
 
+[node name="Characterlocation" type="Marker2D" parent="CharacterBody2D"]
+
 [node name="Dash-Recharge-Timer" type="Timer" parent="."]
 unique_name_in_owner = true
 wait_time = 1.5

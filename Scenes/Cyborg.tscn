@@ -121,5 +121,10 @@ position = Vector2(18, -24)
 position = Vector2(-27, -13)
 shape = SubResource("RectangleShape2D_bydw0")
 
-[node name="mover" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="bullet origin" type="Marker2D" parent="."]
+position = Vector2(-9, 0)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ncb265kceagm" path="res://sprites/ENVIRONMENT/tileset.png" id="2_kln2b"]
 [ext_resource type="Texture2D" uid="uid://bkafq7f4lrvh7" path="res://sprites/unnamed.png" id="3_rgh2o"]
 [ext_resource type="Texture2D" uid="uid://cp6nafiy3w2xy" path="res://sprites/bg/pixil-layer-2.png" id="4_pbw6q"]
-[ext_resource type="PackedScene" uid="uid://bfneg1b6ujd01" path="res://Cyborg.tscn" id="4_rgh2o"]
+[ext_resource type="PackedScene" uid="uid://bfneg1b6ujd01" path="res://Scenes/Cyborg.tscn" id="4_rgh2o"]
 [ext_resource type="Texture2D" uid="uid://cbttkxv4i5udv" path="res://sprites/bg/pixil-layer-3.png" id="6_v1gob"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pbw6q"]
