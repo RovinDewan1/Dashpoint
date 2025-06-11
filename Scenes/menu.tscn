@@ -46,6 +46,9 @@ offset_right = 74.0
 offset_bottom = 82.776
 text = "options   "
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(43, 49)
+
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="options" to="." method="_on_quit_pressed"]
