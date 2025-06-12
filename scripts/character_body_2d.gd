@@ -1,13 +1,20 @@
-্extends CharacterBody2D
+extends CharacterBody2D
 
 
 var SPEED = 130
 const JUMP_VELOCITY = -300.0
 var Dashcounter = 3
-
+var timeleft = 0
+var dashing = false
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var Dash_timer: Timer = %"Dash-Recharge-Timer"
 @onready var delay: Timer = %delay
+@onready var dashes: Label = %Dashes
+@onready var time: Label = %Time
+
+
+
+
 
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -38,6 +45,7 @@ func _physics_process(delta: float) -> void:
 	
 	#play anim
 	if is_on_floor():
+		dashing = false
 		if direction ==0:
 			animated_sprite_2d.play("idle")
 		else:
@@ -73,6 +81,7 @@ func _physics_process(delta: float) -> void:
 					Dashcounter -= 1
 					print(Dashcounter)
 					delay.start()
+					dashing = true
 					dashcheck()
 
 		elif Input.is_action_just_pressed("Dash") and Dashcounter > 0:
@@ -81,9 +90,14 @@ func _physics_process(delta: float) -> void:
 				SPEED += 100
 			Dashcounter -= 1
 			print(Dashcounter)
+			dashing = true
 			delay.start()
 			dashcheck()
-
+	
+	timeleft = snapped(Dash_timer.time_left, 0.1)
+	dashes.text = str(Dashcounter)
+	time.text = str(timeleft)
+	
 	move_and_slide()
 	#print(SPEED)
 #dash-----------
@@ -107,8 +121,3 @@ func on_recharge_timer_timeout() -> void:
 	print(Dashcounter)
 	dashcheck()
 #-------------------
-
-
-func delay_timeout() -> void:
-	pass # Replace with function body.
-	
