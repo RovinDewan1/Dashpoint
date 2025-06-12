@@ -98,17 +98,57 @@ position = Vector2(-1, 0)
 scale = Vector2(1.07739, 1.88907)
 shape = SubResource("RectangleShape2D_jo2ib")
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-scale = Vector2(1.02619, 0.780904)
-zoom = Vector2(3, 3)
-position_smoothing_enabled = true
-position_smoothing_speed = 10.0
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 scale = Vector2(0.511627, 0.571226)
 sprite_frames = SubResource("SpriteFrames_kw72g")
 animation = &"walk"
 autoplay = "idle"
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+scale = Vector2(1.02619, 0.780904)
+zoom = Vector2(3, 3)
+position_smoothing_enabled = true
+position_smoothing_speed = 50.0
+
+[node name="dash counter" type="Label" parent="CharacterBody2D/Camera2D"]
+offset_left = -175.406
+offset_top = -110.129
+offset_right = -54.4061
+offset_bottom = -65.1288
+scale = Vector2(0.883333, 1.07238)
+theme_override_font_sizes/font_size = 32
+text = "Dashes:"
+metadata/_edit_use_anchors_ = true
+
+[node name="Dashes" type="Label" parent="CharacterBody2D/Camera2D"]
+unique_name_in_owner = true
+offset_left = -59.4432
+offset_top = -108.848
+offset_right = 61.5568
+offset_bottom = -63.8482
+scale = Vector2(0.883333, 1.07238)
+theme_override_font_sizes/font_size = 32
+metadata/_edit_use_anchors_ = true
+
+[node name="Time left" type="Label" parent="CharacterBody2D/Camera2D"]
+offset_left = -154.942
+offset_top = -69.1506
+offset_right = -9.94208
+offset_bottom = -24.1506
+scale = Vector2(0.688166, 0.688166)
+theme_override_font_sizes/font_size = 32
+text = "Time left:"
+metadata/_edit_use_anchors_ = true
+
+[node name="Time" type="Label" parent="CharacterBody2D/Camera2D"]
+unique_name_in_owner = true
+offset_left = -47.7494
+offset_top = -67.8701
+offset_right = 97.2506
+offset_bottom = -22.8701
+scale = Vector2(0.688166, 0.688166)
+theme_override_font_sizes/font_size = 32
+metadata/_edit_use_anchors_ = true
 
 [node name="Dash-Recharge-Timer" type="Timer" parent="."]
 unique_name_in_owner = true
