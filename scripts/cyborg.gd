@@ -9,7 +9,7 @@ var direction = 0
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var mover: Timer = $mover
 
-
+'''
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	# Use deferred call to avoid physics state error
 	call_deferred("_spawn_bullet", body)
@@ -25,3 +25,4 @@ func _spawn_bullet(body: Node2D) -> void:
 	if bullet_instance.has_method("set_direction"):
 		var dir = (body.global_position - bulletorigin.global_position).normalized()
 		bullet_instance.set_direction(dir)
+'''
