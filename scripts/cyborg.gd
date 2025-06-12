@@ -9,6 +9,12 @@ var direction = 0
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var mover: Timer = $mover
 
+
+
+
+
+
+
 '''
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	# Use deferred call to avoid physics state error
