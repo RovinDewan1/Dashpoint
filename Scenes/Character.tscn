@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://bar6bdt7r0ln6" path="res://sprites/player/run/run-8.png" id="17_omrrf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jo2ib"]
-size = Vector2(22.2761, 20)
+size = Vector2(10.2099, 20)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kw72g"]
 animations = [{
@@ -94,7 +94,7 @@ z_index = 5
 script = ExtResource("1_0y7nr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(-1, 0)
+position = Vector2(3.57628e-07, 0)
 scale = Vector2(1.07739, 1.88907)
 shape = SubResource("RectangleShape2D_jo2ib")
 
