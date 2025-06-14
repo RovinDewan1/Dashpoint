@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bgrxevv34rfge"]
+[gd_scene load_steps=21 format=3 uid="uid://bgrxevv34rfge"]
 
 [ext_resource type="Script" uid="uid://c2omw2tqckclf" path="res://scripts/character_body_2d.gd" id="1_0y7nr"]
 [ext_resource type="Texture2D" uid="uid://btbg74mdgmtii" path="res://sprites/player/idle/idle-1.png" id="2_kw72g"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://c8btetsxrok3" path="res://sprites/player/run/run-6.png" id="15_k0a7x"]
 [ext_resource type="Texture2D" uid="uid://dhxsvh07rrlbf" path="res://sprites/player/run/run-7.png" id="16_7hvrm"]
 [ext_resource type="Texture2D" uid="uid://bar6bdt7r0ln6" path="res://sprites/player/run/run-8.png" id="17_omrrf"]
+[ext_resource type="FontFile" uid="uid://wbbkwov7ewt1" path="res://sprites/editundo.ttf" id="18_nxr2n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jo2ib"]
 size = Vector2(10.2099, 20)
@@ -111,43 +112,47 @@ position_smoothing_enabled = true
 position_smoothing_speed = 50.0
 
 [node name="dash counter" type="Label" parent="CharacterBody2D/Camera2D"]
-offset_left = -175.406
-offset_top = -110.129
-offset_right = -54.4061
-offset_bottom = -65.1288
+offset_left = -267.007
+offset_top = -148.546
+offset_right = -146.007
+offset_bottom = -103.546
 scale = Vector2(0.883333, 1.07238)
-theme_override_font_sizes/font_size = 32
+theme_override_fonts/font = ExtResource("18_nxr2n")
+theme_override_font_sizes/font_size = 28
 text = "Dashes:"
 metadata/_edit_use_anchors_ = true
 
 [node name="Dashes" type="Label" parent="CharacterBody2D/Camera2D"]
 unique_name_in_owner = true
-offset_left = -59.4432
-offset_top = -108.848
-offset_right = 61.5568
-offset_bottom = -63.8482
+offset_left = -151.044
+offset_top = -147.265
+offset_right = -30.0443
+offset_bottom = -102.265
 scale = Vector2(0.883333, 1.07238)
-theme_override_font_sizes/font_size = 32
+theme_override_fonts/font = ExtResource("18_nxr2n")
+theme_override_font_sizes/font_size = 28
 metadata/_edit_use_anchors_ = true
 
 [node name="Time left" type="Label" parent="CharacterBody2D/Camera2D"]
-offset_left = -154.942
-offset_top = -69.1506
-offset_right = -9.94208
-offset_bottom = -24.1506
+offset_left = -246.543
+offset_top = -107.567
+offset_right = -101.543
+offset_bottom = -62.5674
 scale = Vector2(0.688166, 0.688166)
-theme_override_font_sizes/font_size = 32
+theme_override_fonts/font = ExtResource("18_nxr2n")
+theme_override_font_sizes/font_size = 28
 text = "Time left:"
 metadata/_edit_use_anchors_ = true
 
 [node name="Time" type="Label" parent="CharacterBody2D/Camera2D"]
 unique_name_in_owner = true
-offset_left = -47.7494
-offset_top = -67.8701
-offset_right = 97.2506
-offset_bottom = -22.8701
+offset_left = -139.35
+offset_top = -106.287
+offset_right = 5.64951
+offset_bottom = -61.2869
 scale = Vector2(0.688166, 0.688166)
-theme_override_font_sizes/font_size = 32
+theme_override_fonts/font = ExtResource("18_nxr2n")
+theme_override_font_sizes/font_size = 28
 metadata/_edit_use_anchors_ = true
 
 [node name="Dash-Recharge-Timer" type="Timer" parent="."]
@@ -157,7 +162,7 @@ one_shot = true
 
 [node name="delay" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 0.2
+wait_time = 0.4
 one_shot = true
 
 [connection signal="timeout" from="Dash-Recharge-Timer" to="CharacterBody2D" method="on_recharge_timer_timeout"]

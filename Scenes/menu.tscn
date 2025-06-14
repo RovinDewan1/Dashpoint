@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://l41pgy7wyymy"]
+[gd_scene load_steps=4 format=3 uid="uid://l41pgy7wyymy"]
 
-[ext_resource type="Script" uid="uid://pa0wpaoscbru" path="res://menu.gd" id="1_lti8b"]
+[ext_resource type="Script" uid="uid://pa0wpaoscbru" path="res://scripts/menu.gd" id="1_lti8b"]
+[ext_resource type="Texture2D" uid="uid://klrt2tdbpv0t" path="res://sprites/dashpoint logo.png" id="2_xhh6f"]
+[ext_resource type="Texture2D" uid="uid://blt8pwk47awuu" path="res://bg.png" id="3_cayip"]
 
 [node name="menu" type="Control"]
 layout_mode = 3
@@ -25,18 +27,18 @@ layout_mode = 2
 
 [node name="play" type="Button" parent="."]
 layout_mode = 0
-offset_left = 3.0
-offset_top = 2.0
-offset_right = 72.0
-offset_bottom = 33.0
+offset_left = 2.0
+offset_top = 3.0
+offset_right = 71.0
+offset_bottom = 34.0
 text = "play "
 
 [node name="quit" type="Button" parent="."]
 layout_mode = 0
-offset_left = 9.0
-offset_top = 119.0
-offset_right = 80.0
-offset_bottom = 150.0
+offset_left = 2.0
+offset_top = 46.0
+offset_right = 73.0
+offset_bottom = 77.0
 text = "quit  "
 
 [node name="options" type="Button" parent="."]
@@ -44,11 +46,11 @@ layout_mode = 1
 anchors_preset = -1
 anchor_top = -0.012
 anchor_bottom = -0.012
-offset_left = 4.0
-offset_top = 70.776
-offset_right = 83.0
-offset_bottom = 101.776
-text = "options   "
+offset_left = -3.0
+offset_top = 98.776
+offset_right = 76.0
+offset_bottom = 129.776
+text = " options   "
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(43, 49)
@@ -65,6 +67,17 @@ offset_top = -12.72
 offset_right = 408.416
 offset_bottom = 49.28
 text = "DASH POINT"
+
+[node name="DashpointLogo" type="Sprite2D" parent="."]
+position = Vector2(58, -81)
+scale = Vector2(1.63187, 1.63187)
+texture = ExtResource("2_xhh6f")
+
+[node name="Bg" type="Sprite2D" parent="."]
+z_index = -7
+position = Vector2(47, -50)
+scale = Vector2(12.2025, 12.2025)
+texture = ExtResource("3_cayip")
 
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
