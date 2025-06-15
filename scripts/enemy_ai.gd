@@ -1,21 +1,15 @@
 extends Node2D
 
-@onready var dashing: Node = %Dashing
-@onready var temp___no_killzone_yet: Area2D = $"TEMP - NO KILLZONE YET"
-@onready var collision_shape_2d: CollisionShape2D = $"TEMP - NO KILLZONE YET/CollisionShape2D"
+@onready var character_body_2d: CharacterBody2D = $CharacterBody2D
 
 
 var direction = 0
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	#position.x += direction * 60 * delta
-	pass
 
-
-func _on_temp__no_killzone_yet_body_entered(body: Node2D) -> void:
-	print("tapaa") #so, this works?
-	if dashing.dash == true: #but all of this doesnt? fix this code monkey, you don't deserve freedom
-		print("touched")
-		dashing.Dashcounter +=2
+func _on_temp__no_killzone_yet_body_entered(_body: Node2D) -> void:
+	if Dashing.dash == true:
+		Dashing.Dashcounter += 1
+		Dashing.SPEED += 90
 		queue_free()
+	else:
+		Gamelogic.gameover()
