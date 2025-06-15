@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bgrxevv34rfge"]
+[gd_scene load_steps=21 format=3 uid="uid://bgrxevv34rfge"]
 
 [ext_resource type="Script" uid="uid://c2omw2tqckclf" path="res://scripts/character_body_2d.gd" id="1_0y7nr"]
 [ext_resource type="Texture2D" uid="uid://btbg74mdgmtii" path="res://sprites/player/idle/idle-1.png" id="2_kw72g"]
@@ -18,7 +18,6 @@
 [ext_resource type="Texture2D" uid="uid://dhxsvh07rrlbf" path="res://sprites/player/run/run-7.png" id="16_7hvrm"]
 [ext_resource type="Texture2D" uid="uid://bar6bdt7r0ln6" path="res://sprites/player/run/run-8.png" id="17_omrrf"]
 [ext_resource type="FontFile" uid="uid://wbbkwov7ewt1" path="res://sprites/editundo.ttf" id="18_nxr2n"]
-[ext_resource type="Script" uid="uid://7ccakj2n8h1i" path="res://scripts/dashing.gd" id="19_uis85"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jo2ib"]
 size = Vector2(10.2099, 20)
@@ -165,10 +164,6 @@ one_shot = true
 unique_name_in_owner = true
 wait_time = 0.4
 one_shot = true
-
-[node name="Dashing" type="Node" parent="."]
-unique_name_in_owner = true
-script = ExtResource("19_uis85")
 
 [connection signal="timeout" from="Dash-Recharge-Timer" to="CharacterBody2D" method="on_recharge_timer_timeout"]
 [connection signal="timeout" from="delay" to="CharacterBody2D" method="delay_timeout"]

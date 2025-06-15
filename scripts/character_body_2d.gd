@@ -1,16 +1,15 @@
 extends CharacterBody2D
 
 
-var SPEED = 130
+
 const JUMP_VELOCITY = -300.0
-var Dashcounter = 3
 var timeleft = 0
-var dashing = false
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var Dash_timer: Timer = %"Dash-Recharge-Timer"
 @onready var delay: Timer = %delay
 @onready var dashes: Label = %Dashes
 @onready var time: Label = %Time
+@onready var dashing: Node = %Dashing
 
 
 
@@ -45,7 +44,7 @@ func _physics_process(delta: float) -> void:
 	
 	#play anim
 	if is_on_floor():
-		dashing = false
+		dashing.dash = false
 		if direction ==0:
 			animated_sprite_2d.play("idle")
 		else:
@@ -54,57 +53,58 @@ func _physics_process(delta: float) -> void:
 		animated_sprite_2d.play("jump")
 	
 	if direction:
-		velocity.x = direction * SPEED
-		if SPEED >= 230:
-			if SPEED > 230:
-				SPEED -= 20
+		velocity.x = direction * dashing.SPEED
+		if dashing.SPEED >= 230:
+			if dashing.SPEED > 230:
+				dashing.SPEED -= 20
 				if is_on_floor():
-					SPEED = SPEED - (SPEED-230)
+					dashing.SPEED = dashing.SPEED - (dashing.SPEED-230)
 				#print(SPEED)
 			pass
 		else:
-			SPEED += 1 #speed gain over time
+			dashing.SPEED += 1 #speed gain over time
 			#print(SPEED)
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		if SPEED <= 130:
-			if SPEED < 130:
-				SPEED = 130 # if speed is below 130, set to 130
+		velocity.x = move_toward(velocity.x, 0, dashing.SPEED)
+		if dashing.SPEED <= 130:
+			if dashing.SPEED < 130:
+				dashing.SPEED = 130 # if speed is below 130, set to 130
 			pass
 		else:
-			SPEED -= 10 #speed decay
+			dashing.SPEED -= 10 #speed decay
 			#print(SPEED)
 #dash setup
 	if delay.is_stopped() == true:
-		if Input.is_action_pressed("Jump") and Input.is_action_pressed("Dash") and Dashcounter > 0:
-					velocity.y = JUMP_VELOCITY-150
-					Dashcounter -= 1
-					print(Dashcounter)
-					delay.start()
-					dashing = true
-					dashcheck()
+		if Input.is_action_pressed("Jump") and Input.is_action_pressed("Dash") and dashing.Dashcounter > 0:
+				dashing.dash = true
+				velocity.y = JUMP_VELOCITY-150
+				dashing.Dashcounter -= 1
+				print(dashing.Dashcounter)
+				delay.start()
+				dashcheck()
 
-		elif Input.is_action_just_pressed("Dash") and Dashcounter > 0:
+		elif Input.is_action_just_pressed("Dash") and dashing.Dashcounter > 0:
+			dashing.dash = true
 			velocity.y = JUMP_VELOCITY+150
 			for i in range(6):
-				SPEED += 100
-			Dashcounter -= 1
-			print(Dashcounter)
-			dashing = true
+				dashing.SPEED += 100
+			dashing.Dashcounter -= 1
+			print(dashing.Dashcounter)
 			delay.start()
 			dashcheck()
 	
 	timeleft = snapped(Dash_timer.time_left, 0.1)
-	dashes.text = str(Dashcounter)
+	dashes.text = str(dashing.Dashcounter)
 	time.text = str(timeleft)
 	
 	move_and_slide()
-	#print(SPEED)
+	#print(dashing.SPEED)
+	print(dashing.dash)
 #dash-----------
 
 func dashcheck():
 	print("checking")
-	if Dashcounter >= 3:
+	if dashing.Dashcounter >= 3:
 		print("Too many dashes,skipping")
 	else:
 		print("below max, recharging ")
@@ -117,7 +117,7 @@ func on_recharge_timer_ready() -> void:
 
 func on_recharge_timer_timeout() -> void:
 	print("stopped, adding dash")
-	Dashcounter += 1
-	print(Dashcounter)
+	dashing.Dashcounter += 1
+	print(dashing.Dashcounter)
 	dashcheck()
 #-------------------

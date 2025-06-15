@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bfneg1b6ujd01"]
+[gd_scene load_steps=10 format=3 uid="uid://bfneg1b6ujd01"]
 
 [ext_resource type="Script" uid="uid://vl7x7va2a07x" path="res://scripts/enemy_ai.gd" id="1_phbn7"]
 [ext_resource type="Texture2D" uid="uid://d1cycvcabekgb" path="res://sprites/3 Cyborg/Cyborg_idle.png" id="2_4pp6i"]
+[ext_resource type="Script" uid="uid://7ccakj2n8h1i" path="res://scripts/dashing.gd" id="3_s1buh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s72wg"]
 atlas = ExtResource("2_4pp6i")
@@ -40,12 +41,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ipfg1"]
-size = Vector2(21, 35)
+size = Vector2(34, 50)
 
 [node name="Enemy Ai" type="Node2D"]
 script = ExtResource("1_phbn7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(9, 1)
 sprite_frames = SubResource("SpriteFrames_4etax")
 autoplay = "default"
 frame_progress = 0.938347
@@ -53,5 +55,10 @@ frame_progress = 0.938347
 [node name="TEMP - NO KILLZONE YET" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TEMP - NO KILLZONE YET"]
-position = Vector2(-11.5, 6.5)
 shape = SubResource("RectangleShape2D_ipfg1")
+
+[node name="Dashing" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_s1buh")
+
+[connection signal="body_entered" from="TEMP - NO KILLZONE YET" to="." method="_on_temp__no_killzone_yet_body_entered"]

@@ -1241,7 +1241,7 @@ scale = Vector2(4.94136, 4.94136)
 texture = ExtResource("5_jw32o")
 
 [node name="Enemy Ai" parent="." instance=ExtResource("4_rgh2o")]
-position = Vector2(190, -22)
+position = Vector2(37, -26)
 
 [node name="Pixil-layer-3" type="Sprite2D" parent="."]
 z_index = -10
