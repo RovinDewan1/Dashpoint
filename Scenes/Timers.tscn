@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbke564bay5yu"]
+
+[ext_resource type="Script" uid="uid://c5fwqrmmri5fy" path="res://Scripts/gamelogic.gd" id="1_1aobc"]
+
+[node name="Timers" type="Node2D"]
+script = ExtResource("1_1aobc")
