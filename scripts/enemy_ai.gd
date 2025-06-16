@@ -2,7 +2,8 @@ extends Node2D
 
 @onready var hittimer: Timer = $Hittimer
 @onready var punch: AudioStreamPlayer2D = $PUNCH
-@onready var character: Node2D = $"../Character"
+@onready var character: Node2D = %Character
+@onready var death: AudioStreamPlayer2D = $death
 
 
 
@@ -19,9 +20,9 @@ func _on_temp__no_killzone_yet_body_entered(_body: Node2D) -> void:
 		#print("taketh") #debug
 		punch.play()
 		Dashing.Dashcounter += 2
-		Dashing.SPEED += 90
-		Engine.time_scale = .5
-		await get_tree().create_timer(0.2).timeout
+		Dashing.SPEED += 400
+		Engine.time_scale = .2
+		await get_tree().create_timer(0.1).timeout
 		Engine.time_scale = 1
 		await get_tree().create_timer(0.155).timeout
 		queue_free()
@@ -29,7 +30,7 @@ func _on_temp__no_killzone_yet_body_entered(_body: Node2D) -> void:
 		Gamelogic.gameoverloc = _body.global_position
 		print("Game over triggered at position:", Gamelogic.gameoverloc)
 		Gamelogic.gameover()
-
+		death.play()
 
 
 

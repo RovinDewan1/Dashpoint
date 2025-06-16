@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ll0wbwar3qct"
+path="res://.godot/imported/Metal pipe falling sound effect but it’s more violent - Rush.mp3-cc4b1bf806b2863e404526f4b487e996.mp3str"
+
+[deps]
+
+source_file="res://sprites/Sounds/Metal pipe falling sound effect but it’s more violent - Rush.mp3"
+dest_files=["res://.godot/imported/Metal pipe falling sound effect but it’s more violent - Rush.mp3-cc4b1bf806b2863e404526f4b487e996.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

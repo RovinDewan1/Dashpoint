@@ -9,13 +9,20 @@ var timeleft = 0
 @onready var delay: Timer = %delay
 @onready var dashes: Label = %Dashes
 @onready var time: Label = %Time
-
-
-
-
-
+@onready var running: AudioStreamPlayer2D = $"../Running"
+@onready var jump: AudioStreamPlayer2D = $"../Jump"
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
+
+
+func _ready():
+	if Dash_timer.is_stopped() == false:
+		Dash_timer.stop()
+	if delay.is_stopped() == false:
+		delay.stop()
+	if not Dash_timer.timeout.is_connected(on_recharge_timer_timeout):
+		Dash_timer.timeout.connect(on_recharge_timer_timeout)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -28,6 +35,7 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		jump.play()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -50,7 +58,6 @@ func _physics_process(delta: float) -> void:
 			animated_sprite_2d.play("walk")
 	else:
 		animated_sprite_2d.play("jump")
-	
 	if direction:
 		velocity.x = direction * Dashing.SPEED
 		if Dashing.SPEED >= 230:
@@ -79,6 +86,7 @@ func _physics_process(delta: float) -> void:
 				velocity.y = JUMP_VELOCITY-150
 				Dashing.Dashcounter -= 1
 				print(Dashing.Dashcounter)
+				jump.play()
 				delay.start()
 				dashcheck()
 
@@ -89,8 +97,15 @@ func _physics_process(delta: float) -> void:
 				Dashing.SPEED += 100
 			Dashing.Dashcounter -= 1
 			print(Dashing.Dashcounter)
+			jump.play()
 			delay.start()
 			dashcheck()
+	
+	if Input.is_action_just_pressed("Left") or Input.is_action_just_pressed("Right") and is_on_floor():
+		running.play()
+	if Input.is_action_just_released("Left") or Input.is_action_just_released("Right"):
+		running.stop()
+	
 	
 	timeleft = snapped(Dash_timer.time_left, 0.1)
 	dashes.text = str(Dashing.Dashcounter)
@@ -99,6 +114,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	#print(dashing.SPEED)
 	#print(dashing.dash)
+	#print(delay.time_left)
+	#print(is_on_floor())
 #dash-----------
 
 

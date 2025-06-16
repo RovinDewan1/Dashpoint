@@ -1,5 +1,6 @@
-[gd_scene load_steps=15 format=4 uid="uid://sh0jfkl53hqm"]
+[gd_scene load_steps=17 format=4 uid="uid://sh0jfkl53hqm"]
 
+[ext_resource type="Script" uid="uid://b3bhsqoh2ywev" path="res://scripts/main.gd" id="1_grg3l"]
 [ext_resource type="PackedScene" uid="uid://bgrxevv34rfge" path="res://Scenes/Character.tscn" id="1_r150o"]
 [ext_resource type="Texture2D" uid="uid://dsgnmb38r2y2m" path="res://sprites/tilesets/[32x32] Dungeon Bricks Shadow.png" id="2_50glp"]
 [ext_resource type="Texture2D" uid="uid://ncb265kceagm" path="res://sprites/ENVIRONMENT/tileset.png" id="2_kln2b"]
@@ -9,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bfneg1b6ujd01" path="res://Scenes/Cyborg.tscn" id="4_rgh2o"]
 [ext_resource type="Texture2D" uid="uid://8gsdsoc4l8h4" path="res://sprites/2 Background/Background.png" id="5_jw32o"]
 [ext_resource type="Texture2D" uid="uid://cbttkxv4i5udv" path="res://sprites/bg/pixil-layer-3.png" id="6_v1gob"]
+[ext_resource type="AudioStream" uid="uid://bikkus6kx406r" path="res://sprites/Sounds/15 Minutes of Video Game Music - Dangerous Black from MegaMan Battle Network 3 - Ace9921.mp3" id="10_bmxlf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vy5pj"]
 texture = ExtResource("2_50glp")
@@ -1185,8 +1187,10 @@ sources/0 = SubResource("TileSetAtlasSource_vy5pj")
 sources/1 = SubResource("TileSetAtlasSource_bmxlf")
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_grg3l")
 
 [node name="Character" parent="." instance=ExtResource("1_r150o")]
+unique_name_in_owner = true
 position = Vector2(1, -47)
 scale = Vector2(1.07224, 1.36476)
 
@@ -1298,3 +1302,9 @@ offset_top = -455.0
 offset_right = 805.0
 offset_bottom = -348.0
 text = "Dash into enemy to kill and gain +2 dashes"
+
+[node name="15MinutesOfVideoGameMusic-DangerousBlackFromMegaManBattleNetwork3-Ace9921" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_bmxlf")
+
+[node name="Enemy Ai" parent="." instance=ExtResource("4_rgh2o")]
+position = Vector2(341, -20)

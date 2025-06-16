@@ -12,16 +12,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_cgu7o")
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = -73.0
-offset_top = 16.0
-offset_right = 74.0
-offset_bottom = 50.0
-theme_override_fonts/font = ExtResource("1_ya32s")
-theme_override_font_sizes/font_size = 28
-text = "Restart"
-
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
 offset_left = -75.0
@@ -36,7 +26,17 @@ text = "YOU DIED.
 RESTART?"
 horizontal_alignment = 1
 
-[node name="Button2" type="Button" parent="."]
+[node name="Restart" type="Button" parent="."]
+layout_mode = 0
+offset_left = -73.0
+offset_top = 16.0
+offset_right = 74.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("1_ya32s")
+theme_override_font_sizes/font_size = 28
+text = "Restart"
+
+[node name="Quit" type="Button" parent="."]
 layout_mode = 0
 offset_left = -73.0
 offset_top = 75.0
@@ -46,3 +46,6 @@ theme_override_fonts/font = ExtResource("1_ya32s")
 theme_override_font_sizes/font_size = 28
 text = "Quit
 "
+
+[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
