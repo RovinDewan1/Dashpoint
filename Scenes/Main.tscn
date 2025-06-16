@@ -1240,11 +1240,29 @@ position = Vector2(810, -1286)
 scale = Vector2(4.94136, 4.94136)
 texture = ExtResource("5_jw32o")
 
-[node name="Enemy Ai" parent="." instance=ExtResource("4_rgh2o")]
-position = Vector2(491, -357)
-
 [node name="Pixil-layer-3" type="Sprite2D" parent="."]
 z_index = -10
 position = Vector2(735, -1124)
 scale = Vector2(18.155, 18.155)
 texture = ExtResource("6_v1gob")
+
+[node name="Enemy Ai" parent="." instance=ExtResource("4_rgh2o")]
+position = Vector2(491, -357)
+
+[node name="Enemy Ai2" parent="." instance=ExtResource("4_rgh2o")]
+position = Vector2(342, -25)
+
+[node name="Enemy Ai3" parent="." instance=ExtResource("4_rgh2o")]
+position = Vector2(523, -597)
+
+[node name="Enemy Ai4" parent="." instance=ExtResource("4_rgh2o")]
+position = Vector2(685, -725)
+
+[node name="Enemy Ai5" parent="." instance=ExtResource("4_rgh2o")]
+position = Vector2(649, -1013)
+
+[node name="Enemy Ai6" parent="." instance=ExtResource("4_rgh2o")]
+position = Vector2(1044, -1349)
+
+[node name="Enemy Ai7" parent="." instance=ExtResource("4_rgh2o")]
+position = Vector2(362, -1493)
