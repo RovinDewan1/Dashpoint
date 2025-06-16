@@ -1,8 +1,7 @@
-[gd_scene load_steps=16 format=4 uid="uid://sh0jfkl53hqm"]
+[gd_scene load_steps=15 format=4 uid="uid://sh0jfkl53hqm"]
 
 [ext_resource type="PackedScene" uid="uid://bgrxevv34rfge" path="res://Scenes/Character.tscn" id="1_r150o"]
 [ext_resource type="Texture2D" uid="uid://dsgnmb38r2y2m" path="res://sprites/tilesets/[32x32] Dungeon Bricks Shadow.png" id="2_50glp"]
-[ext_resource type="PackedScene" uid="uid://dyknrio6b3mgk" path="res://Scenes/Failscreen.tscn" id="2_bmxlf"]
 [ext_resource type="Texture2D" uid="uid://ncb265kceagm" path="res://sprites/ENVIRONMENT/tileset.png" id="2_kln2b"]
 [ext_resource type="Texture2D" uid="uid://bkafq7f4lrvh7" path="res://sprites/tilesets/unnamed.png" id="3_rgh2o"]
 [ext_resource type="Texture2D" uid="uid://tkhne8paewlo" path="res://sprites/tilesets/purplecity.png" id="3_vy5pj"]
@@ -1190,11 +1189,6 @@ sources/1 = SubResource("TileSetAtlasSource_bmxlf")
 [node name="Character" parent="." instance=ExtResource("1_r150o")]
 position = Vector2(1, -47)
 scale = Vector2(1.07224, 1.36476)
-
-[node name="Failscreen" parent="Character" instance=ExtResource("2_bmxlf")]
-z_index = 69
-offset_top = -486.532
-offset_bottom = -486.532
 
 [node name="map" type="TileMap" parent="."]
 y_sort_enabled = true

@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bfneg1b6ujd01"]
+[gd_scene load_steps=10 format=3 uid="uid://bfneg1b6ujd01"]
 
 [ext_resource type="Script" uid="uid://vl7x7va2a07x" path="res://scripts/enemy_ai.gd" id="1_phbn7"]
 [ext_resource type="Texture2D" uid="uid://d1cycvcabekgb" path="res://sprites/3 Cyborg/Cyborg_idle.png" id="2_4pp6i"]
+[ext_resource type="AudioStream" uid="uid://cdx10kum4ld3x" path="res://sprites/Sounds/realistic_punch-mark_diangelo-1609462330.mp3" id="3_s1buh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s72wg"]
 atlas = ExtResource("2_4pp6i")
@@ -56,4 +57,12 @@ autoplay = "default"
 position = Vector2(-3, 0)
 shape = SubResource("RectangleShape2D_ipfg1")
 
+[node name="Hittimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="PUNCH" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_s1buh")
+
 [connection signal="body_entered" from="TEMP - NO KILLZONE YET" to="." method="_on_temp__no_killzone_yet_body_entered"]
+[connection signal="timeout" from="Hittimer" to="." method="_on_hittimer_timeout"]

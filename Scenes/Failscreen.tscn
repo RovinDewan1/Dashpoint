@@ -35,6 +35,7 @@ RESTART?"
 horizontal_alignment = 1
 
 [node name="Button2" type="Button" parent="."]
+layout_mode = 0
 offset_left = -73.0
 offset_top = 75.0
 offset_right = 74.0
