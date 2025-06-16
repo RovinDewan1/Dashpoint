@@ -8,7 +8,9 @@ var timeleft = 0
 @onready var Dash_timer: Timer = %"Dash-Recharge-Timer"
 @onready var delay: Timer = %delay
 @onready var dashes: Label = %Dashes
-@onready var time: Label = %Time
+@onready var time: Label = %Time 
+@onready var jump: AudioStreamPlayer2D = $"../Jump"
+@onready var run: AudioStreamPlayer2D = $"../run"
 
 
 
@@ -28,6 +30,7 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		jump.play()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -48,6 +51,7 @@ func _physics_process(delta: float) -> void:
 			animated_sprite_2d.play("idle")
 		else:
 			animated_sprite_2d.play("walk")
+			run.play() 
 	else:
 		animated_sprite_2d.play("jump")
 	
@@ -80,6 +84,7 @@ func _physics_process(delta: float) -> void:
 				Dashing.Dashcounter -= 1
 				print(Dashing.Dashcounter)
 				delay.start()
+				jump.play()
 				dashcheck()
 
 		elif Input.is_action_just_pressed("Dash") and Dashing.Dashcounter > 0:
@@ -90,6 +95,7 @@ func _physics_process(delta: float) -> void:
 			Dashing.Dashcounter -= 1
 			print(Dashing.Dashcounter)
 			delay.start()
+			jump.play()
 			dashcheck()
 	
 	timeleft = snapped(Dash_timer.time_left, 0.1)

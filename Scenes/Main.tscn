@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://sh0jfkl53hqm"]
+[gd_scene load_steps=16 format=4 uid="uid://sh0jfkl53hqm"]
 
 [ext_resource type="PackedScene" uid="uid://bgrxevv34rfge" path="res://Scenes/Character.tscn" id="1_r150o"]
 [ext_resource type="Texture2D" uid="uid://dsgnmb38r2y2m" path="res://sprites/tilesets/[32x32] Dungeon Bricks Shadow.png" id="2_50glp"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bfneg1b6ujd01" path="res://Scenes/Cyborg.tscn" id="4_rgh2o"]
 [ext_resource type="Texture2D" uid="uid://8gsdsoc4l8h4" path="res://sprites/2 Background/Background.png" id="5_jw32o"]
 [ext_resource type="Texture2D" uid="uid://cbttkxv4i5udv" path="res://sprites/bg/pixil-layer-3.png" id="6_v1gob"]
+[ext_resource type="AudioStream" uid="uid://bcliwlvqf2d0l" path="res://sprites/Sounds/8-Bit Horror Game Soundtrack From Inside The Cartridge - Unfinished track in LMMS - EpicMonkeyFries.mp3" id="10_bmxlf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vy5pj"]
 texture = ExtResource("2_50glp")
@@ -1266,3 +1267,9 @@ position = Vector2(1044, -1349)
 
 [node name="Enemy Ai7" parent="." instance=ExtResource("4_rgh2o")]
 position = Vector2(362, -1493)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(1, -47)
+scale = Vector2(1.07224, 1.36476)
+stream = ExtResource("10_bmxlf")
+autoplay = true

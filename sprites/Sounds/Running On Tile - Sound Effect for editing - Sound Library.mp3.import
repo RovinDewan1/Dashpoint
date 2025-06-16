@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dixd3i1smfq1y"
+path="res://.godot/imported/Running On Tile - Sound Effect for editing - Sound Library.mp3-3e8803686c3634268a40822d8f4b8ae8.mp3str"
+
+[deps]
+
+source_file="res://sprites/Sounds/Running On Tile - Sound Effect for editing - Sound Library.mp3"
+dest_files=["res://.godot/imported/Running On Tile - Sound Effect for editing - Sound Library.mp3-3e8803686c3634268a40822d8f4b8ae8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bgrxevv34rfge"]
+[gd_scene load_steps=24 format=3 uid="uid://bgrxevv34rfge"]
 
 [ext_resource type="Script" uid="uid://c2omw2tqckclf" path="res://scripts/character_body_2d.gd" id="1_0y7nr"]
 [ext_resource type="Texture2D" uid="uid://btbg74mdgmtii" path="res://sprites/player/idle/idle-1.png" id="2_kw72g"]
@@ -19,6 +19,8 @@
 [ext_resource type="Texture2D" uid="uid://bar6bdt7r0ln6" path="res://sprites/player/run/run-8.png" id="17_omrrf"]
 [ext_resource type="FontFile" uid="uid://wbbkwov7ewt1" path="res://sprites/editundo.ttf" id="18_nxr2n"]
 [ext_resource type="Script" uid="uid://c5fwqrmmri5fy" path="res://scripts/gamelogic.gd" id="19_uis85"]
+[ext_resource type="AudioStream" uid="uid://dbasavvk0nlif" path="res://sprites/Sounds/action_jump.mp3" id="20_d4e0j"]
+[ext_resource type="AudioStream" uid="uid://dixd3i1smfq1y" path="res://sprites/Sounds/Running On Tile - Sound Effect for editing - Sound Library.mp3" id="21_nn15e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jo2ib"]
 size = Vector2(10.2099, 20)
@@ -168,6 +170,12 @@ one_shot = true
 
 [node name="Node" type="Node" parent="."]
 script = ExtResource("19_uis85")
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("20_d4e0j")
+
+[node name="run" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("21_nn15e")
 
 [connection signal="timeout" from="Dash-Recharge-Timer" to="CharacterBody2D" method="on_recharge_timer_timeout"]
 [connection signal="timeout" from="delay" to="CharacterBody2D" method="delay_timeout"]
