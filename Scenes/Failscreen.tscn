@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://dyknrio6b3mgk"]
+[gd_scene load_steps=3 format=3 uid="uid://dyknrio6b3mgk"]
 
+[ext_resource type="Script" uid="uid://crs06qtmt2suh" path="res://Scenes/failscreen.gd" id="1_cgu7o"]
 [ext_resource type="FontFile" uid="uid://wbbkwov7ewt1" path="res://sprites/editundo.ttf" id="1_ya32s"]
 
 [node name="Failscreen" type="Control"]
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_cgu7o")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
