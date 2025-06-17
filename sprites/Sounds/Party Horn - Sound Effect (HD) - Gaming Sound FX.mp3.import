@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://hlvlytrfu4e6"
+path="res://.godot/imported/Party Horn - Sound Effect (HD) - Gaming Sound FX.mp3-516cb13d82e7b54b15935fa3d0c105dd.mp3str"
+
+[deps]
+
+source_file="res://sprites/Sounds/Party Horn - Sound Effect (HD) - Gaming Sound FX.mp3"
+dest_files=["res://.godot/imported/Party Horn - Sound Effect (HD) - Gaming Sound FX.mp3-516cb13d82e7b54b15935fa3d0c105dd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

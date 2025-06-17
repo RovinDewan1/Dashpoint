@@ -41,17 +41,6 @@ offset_right = 73.0
 offset_bottom = 77.0
 text = "quit  "
 
-[node name="options" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = -0.012
-anchor_bottom = -0.012
-offset_left = -3.0
-offset_top = 98.776
-offset_right = 76.0
-offset_bottom = 129.776
-text = " options   "
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(43, 49)
 zoom = Vector2(2, 2)
@@ -69,4 +58,3 @@ texture = ExtResource("3_cayip")
 
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="options" to="." method="_on_quit_pressed"]

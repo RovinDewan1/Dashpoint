@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://c8btetsxrok3" path="res://sprites/player/run/run-6.png" id="15_k0a7x"]
 [ext_resource type="Texture2D" uid="uid://dhxsvh07rrlbf" path="res://sprites/player/run/run-7.png" id="16_7hvrm"]
 [ext_resource type="Texture2D" uid="uid://bar6bdt7r0ln6" path="res://sprites/player/run/run-8.png" id="17_omrrf"]
-[ext_resource type="Script" uid="uid://cqdb0fsvujsyw" path="res://Scenes/camera_2d.gd" id="18_nn15e"]
+[ext_resource type="Script" uid="uid://cqdb0fsvujsyw" path="res://scripts/camera_2d.gd" id="18_nn15e"]
 [ext_resource type="FontFile" uid="uid://wbbkwov7ewt1" path="res://sprites/editundo.ttf" id="18_nxr2n"]
 [ext_resource type="Script" uid="uid://c5fwqrmmri5fy" path="res://scripts/gamelogic.gd" id="19_uis85"]
 [ext_resource type="AudioStream" uid="uid://dbasavvk0nlif" path="res://sprites/Sounds/action_jump.mp3" id="20_d4e0j"]
