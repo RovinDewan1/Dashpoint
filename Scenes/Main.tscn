@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://sh0jfkl53hqm"]
+[gd_scene load_steps=22 format=4 uid="uid://sh0jfkl53hqm"]
 
 [ext_resource type="Script" uid="uid://coa4ybe313xlx" path="res://scripts/timers.gd" id="1_frkhe"]
 [ext_resource type="PackedScene" uid="uid://bgrxevv34rfge" path="res://Scenes/Character.tscn" id="1_r150o"]
@@ -10,7 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://bfneg1b6ujd01" path="res://Scenes/Cyborg.tscn" id="4_rgh2o"]
 [ext_resource type="Texture2D" uid="uid://8gsdsoc4l8h4" path="res://sprites/2 Background/Background.png" id="5_jw32o"]
 [ext_resource type="Texture2D" uid="uid://cbttkxv4i5udv" path="res://sprites/bg/pixil-layer-3.png" id="6_v1gob"]
+[ext_resource type="Texture2D" uid="uid://dbjrgd7mhya2d" path="res://sprites/2 Background/2.png" id="9_h1m7h"]
 [ext_resource type="AudioStream" uid="uid://bikkus6kx406r" path="res://sprites/Sounds/15 Minutes of Video Game Music - Dangerous Black from MegaMan Battle Network 3 - Ace9921.mp3" id="10_bmxlf"]
+[ext_resource type="Texture2D" uid="uid://ba0gkesb7rswa" path="res://sprites/2 Background/1.png" id="10_erwvk"]
 [ext_resource type="FontFile" uid="uid://wbbkwov7ewt1" path="res://sprites/editundo.ttf" id="11_grg3l"]
 [ext_resource type="Script" uid="uid://5txqhat6byo8" path="res://scripts/win.gd" id="13_frkhe"]
 
@@ -1240,19 +1242,31 @@ collision_enabled = false
 
 [node name="Pixil-layer-2" type="Sprite2D" parent="map/BG"]
 z_index = -10
-position = Vector2(530.5, -893.5)
-scale = Vector2(20.65, 20.65)
+position = Vector2(530.612, -2026)
+scale = Vector2(21.6219, 40.6333)
 texture = ExtResource("4_pbw6q")
 
 [node name="Background" type="Sprite2D" parent="map/BG"]
 z_index = -13
-position = Vector2(810, -1286)
-scale = Vector2(4.94136, 4.94136)
+position = Vector2(810.112, -2418.5)
+scale = Vector2(10.6614, 10.6614)
 texture = ExtResource("5_jw32o")
+
+[node name="2" type="Sprite2D" parent="map/BG"]
+z_index = -13
+position = Vector2(1150, -2816)
+scale = Vector2(7.4, 7.4)
+texture = ExtResource("9_h1m7h")
+
+[node name="1" type="Sprite2D" parent="map/BG"]
+z_index = -14
+position = Vector2(802, -3682)
+scale = Vector2(10.76, 4.26584)
+texture = ExtResource("10_erwvk")
 
 [node name="Pixil-layer-3" type="Sprite2D" parent="."]
 z_index = -10
-position = Vector2(735, -1124)
+position = Vector2(735.112, -2256.5)
 scale = Vector2(18.155, 18.155)
 texture = ExtResource("6_v1gob")
 
