@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bgrxevv34rfge"]
+[gd_scene load_steps=26 format=3 uid="uid://bgrxevv34rfge"]
 
 [ext_resource type="Script" uid="uid://c2omw2tqckclf" path="res://scripts/character_body_2d.gd" id="1_0y7nr"]
 [ext_resource type="Texture2D" uid="uid://btbg74mdgmtii" path="res://sprites/player/idle/idle-1.png" id="2_kw72g"]
@@ -21,6 +21,7 @@
 [ext_resource type="FontFile" uid="uid://wbbkwov7ewt1" path="res://sprites/editundo.ttf" id="18_nxr2n"]
 [ext_resource type="Script" uid="uid://c5fwqrmmri5fy" path="res://scripts/gamelogic.gd" id="19_uis85"]
 [ext_resource type="AudioStream" uid="uid://dbasavvk0nlif" path="res://sprites/Sounds/action_jump.mp3" id="20_d4e0j"]
+[ext_resource type="Texture2D" uid="uid://d3qud0mevr4vm" path="res://sprites/bg/pixil-frame-0 (1).png" id="20_wjmpa"]
 [ext_resource type="AudioStream" uid="uid://2rbtd1i1rvjm" path="res://sprites/Sounds/Roblox Walking Sound Effect - VideoGamer837.mp3" id="22_wcxyp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jo2ib"]
@@ -159,6 +160,23 @@ scale = Vector2(0.688166, 0.688166)
 theme_override_fonts/font = ExtResource("18_nxr2n")
 theme_override_font_sizes/font_size = 28
 metadata/_edit_use_anchors_ = true
+
+[node name="Stopwatch" type="Label" parent="CharacterBody2D/Camera2D"]
+offset_left = 229.002
+offset_top = -165.193
+offset_right = 350.002
+offset_bottom = -120.193
+scale = Vector2(0.883333, 1.07238)
+theme_override_fonts/font = ExtResource("18_nxr2n")
+theme_override_font_sizes/font_size = 14
+text = "00:00"
+metadata/_edit_use_anchors_ = true
+
+[node name="Pixil-frame-0(1)" type="Sprite2D" parent="CharacterBody2D/Camera2D"]
+z_index = -1
+position = Vector2(-195.496, -61.1615)
+scale = Vector2(0.98298, 0.98298)
+texture = ExtResource("20_wjmpa")
 
 [node name="Dash-Recharge-Timer" type="Timer" parent="."]
 unique_name_in_owner = true

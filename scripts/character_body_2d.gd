@@ -11,9 +11,11 @@ var timeleft = 0
 @onready var time: Label = %Time
 @onready var running: AudioStreamPlayer2D = $"../Running"
 @onready var jump: AudioStreamPlayer2D = $"../Jump"
-
+@onready var stopwatch: Label = $Camera2D/Stopwatch
+var minutes =  0
+var sec: float = 0 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
+var minsub = 0
 
 
 func _ready():
@@ -30,6 +32,14 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 
+# handle stopwatch
+	if Gamelogic.stopwatch == true:
+		sec = snapped(Gamelogic.calctime,0.01) - (minsub * 60)
+		stopwatch.text = str(minutes," : ", sec)
+		if sec > 60:
+			sec = sec -60
+			minutes += 1
+			minsub += 1
 
 
 	# Handle jump.
@@ -110,7 +120,6 @@ func _physics_process(delta: float) -> void:
 	timeleft = snapped(Dash_timer.time_left, 0.1)
 	dashes.text = str(Dashing.Dashcounter)
 	time.text = str(timeleft)
-	
 	move_and_slide()
 	#print(dashing.SPEED)
 	#print(dashing.dash)

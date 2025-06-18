@@ -1306,12 +1306,6 @@ scale = Vector2(-1.00001, 1)
 [node name="Enemy Ai11" parent="Enemies" instance=ExtResource("4_rgh2o")]
 position = Vector2(783, -1877)
 
-[node name="Enemy Ai12" parent="Enemies" instance=ExtResource("4_rgh2o")]
-position = Vector2(783, -1877)
-
-[node name="Enemy Ai13" parent="Enemies" instance=ExtResource("4_rgh2o")]
-position = Vector2(341, -20)
-
 [node name="Enemy Ai14" parent="Enemies" instance=ExtResource("4_rgh2o")]
 position = Vector2(352, -2436)
 
@@ -1327,9 +1321,6 @@ position = Vector2(286, -2773)
 [node name="Enemy Ai18" parent="Enemies" instance=ExtResource("4_rgh2o")]
 position = Vector2(665, -2852)
 
-[node name="Enemy Ai19" parent="Enemies" instance=ExtResource("4_rgh2o")]
-position = Vector2(665, -2852)
-
 [node name="Enemy Ai20" parent="Enemies" instance=ExtResource("4_rgh2o")]
 position = Vector2(391, -2996)
 
@@ -1337,9 +1328,9 @@ position = Vector2(391, -2996)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Labels"]
 offset_left = 247.0
-offset_top = -129.0
+offset_top = -75.0
 offset_right = 394.0
-offset_bottom = -97.0
+offset_bottom = -43.0
 theme_override_fonts/normal_font = ExtResource("11_grg3l")
 theme_override_font_sizes/normal_font_size = 14
 text = "Press Shift to dash "
@@ -1355,9 +1346,9 @@ text = "Use WASD to move"
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="Labels"]
 offset_left = 417.0
-offset_top = -225.0
+offset_top = -158.0
 offset_right = 643.0
-offset_bottom = -147.0
+offset_bottom = -80.0
 theme_override_fonts/normal_font = ExtResource("11_grg3l")
 theme_override_font_sizes/normal_font_size = 14
 text = "Hold the space bar and press shift to dash up mid air"
